@@ -1,4 +1,4 @@
-# Mongoose Mini-Project
+# Mongoose Museum Explorer
 
 Mongoose is an ORM for Mongo databases, just like Sequelize is an ORM for SQL databases. MongoDB is known as a "No-SQL" database. This can offer us a lot of flexibility as we are now free from the constraints that SQL puts on us.
 
