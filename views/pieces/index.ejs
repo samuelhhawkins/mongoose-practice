@@ -1,5 +1,5 @@
 <h2 class="text-center">Pieces List</h2>
 
-<% pieces.forEach(piece => { %>
-    <h2><a href="/pieces/<%=piece._id%>"><%= piece.name %></a> (<%=piece.museum.name%>) </h2>
+<% pieces.forEach(pieces => { %>
+    <h2><a href="/pieces/<%=pieces._id%>"><%= pieces.name %></a> (<%=pieces.name%>) </h2>
 <% }) %>

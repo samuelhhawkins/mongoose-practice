@@ -1,5 +1,8 @@
 <h2 class="text-center">Museums List</h2>
 
 <% museums.forEach(museum => { %>
-   <a href="/museums/<%=museum._id %>"><%= museum.name %></a>
+  <div>
+    <a href="/museums/<%=museum._id %>"><%= museum.name %></a>
+    <image src=<%=museum.image%> />
+  </div>
 <% }) %>
