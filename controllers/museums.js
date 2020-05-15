@@ -7,26 +7,30 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   // TODO: Replace stub route with page that renders list of all museums
-  db.museum.find()
+  db.Museum.find()
   .then(museums => {
     res.render('museums/index', {museums});
   })
   .catch(err => {
       console.log("error in museums index route", err)
-      res.status(500).send({ message: 'oops?'})
+      res.status(500).send({ message: 'oops?5'})
   })
 });
 
 router.post('/', (req, res) => {
-  db.museum.create({
+  db.Museum.create({
     name: req.body.name,
     city: req.body.city,
     country: req.body.city,
     image: req.body.image
   })
   .then(newMuseum => {
-    cosnsole.log(newMuseum)
+    console.log(newMuseum)
     res.redirect('/museums')
+  })
+  .catch(err => {
+      console.log("error in museums post route", err)
+      res.status(500).send({ message: 'oops?6'})
   })
 });
 
@@ -38,7 +42,17 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
   // TODO: Replace stub route with page that renders museum details
   //  and a list of pieces that musuem contains
-  res.send('museums/show');
-});
+    db.Museum.findOne({_id: req.params.id})
+    .then(museumInfo => {
+        db.Piece.find({museum: req.params.id})
+        .then(pieces => {
+            res.render('museums/show', {museum: museumInfo, pieces})
+        })
+    })
+    .catch(err => {
+        console.log("error in get musuem by id route", err)
+        res.status(500).send({ message: 'oops?7'})
+    })
+  });
 
 module.exports = router;

@@ -1,3 +1,14 @@
-<!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Museum</h2>
-<p>Show a list of pieces in this museum</p>
+<h1><%= museum.name %></h1>
+<h4> <%= museum.city%> </h4>
+<h4><%=museum.country%></h4>
+<image src=<%=museum.image%> />
+
+
+  <% if (pieces.length) { %>
+      <% pieces.forEach(p => { %>
+          <a href="/pieces/<%=p._id%>"><h4> <%= p.name %> </h4></a>
+      <% }) %>
+  <% } else { %>
+      <p>No pieces yet</p>
+      <p>Use this link to create a <a href="/pieces/new">new piece</a></p>
+  <%}%>

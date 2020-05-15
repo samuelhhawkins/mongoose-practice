@@ -1,3 +1,52 @@
 <h2 class="text-center text-primary">Add a New Piece</h2>
 
-<!-- TODO: Add a form for making a new piece. Should post to /pieces -->
+<!-- Add a form for making a new piece. Should post to /pieces -->
+
+
+<form action="/pieces" method="POST" class="text-left">
+    <h4>Piece Information</h4>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name"/>
+    </div>
+    <div class="form-group">
+        <label for="image">Image URL</label>
+        <input type="text" id="image" name="image"/>
+    </div>
+    <div class="form-group">
+        <label for="originCountry">Country of origin</label>
+        <input type="text" id="originCountry" name="originCountry"/>
+    </div>
+
+    <div class="form-group">
+        <h4>What museum is holding this piece?</h4>
+        <% museums.forEach(m => { %>
+            <label for="<%= m.name %>"><%= m.name %></label>
+            <input type="checkbox" id="<%= m.name %>" name="museum" value="<%= m._id%>"/>
+        <% }) %>
+
+    </div>
+
+    <h4>Who created this piece?</h4>
+    <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname"/>
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname"/>
+    </div>
+    <div class="form-group">
+        <label for="image">Image Link</label>
+        <input type="text" id="image" name="creatorimage"/>
+    </div>
+    <div class="form-group">
+        <label for="birthYear">Birth Year</label>
+        <input type="text" id="birthYear" name="birthYear"/>
+    </div>
+    <div>
+        <label for="deathYear">Death Year</label>
+        <input type="text" id="deathYear" name="deathYear"/>
+    </div>
+    <input type="submit" value="ADD"/>
+
+
+</form>
