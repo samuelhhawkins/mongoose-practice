@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   // TODO: Replace stub route with page that renders list of all pieces
+  
   res.render('pieces/index');
 });
 
